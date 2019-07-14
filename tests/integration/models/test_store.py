@@ -46,6 +46,7 @@ class StoreTest(BaseTest):
 
             expected = {
                 'name':'test store',
+                'id':1,
                 'items':[
                     {'name':'test',
                           'price': 19.99

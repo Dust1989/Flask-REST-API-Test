@@ -11,7 +11,7 @@ class StoreTest(BaseTest):
 
                 self.assertEqual(respond.status_code, 201)
 
-                expected = {'name':'test', 'items':[]}
+                expected = {'name':'test', 'id':1 ,'items':[]}
                 self.assertDictEqual(json.loads(respond.data), expected)
 
     def test_delete_store(self):
@@ -59,7 +59,7 @@ class StoreTest(BaseTest):
 
                 respond = client.get('/store/test')
 
-                expected = {'name': 'test', 'items': [{'name': 'test item', 'price': 8.88}]}
+                expected = {'name': 'test', 'id':1 ,'items': [{'name': 'test item', 'price': 8.88}]}
                 self.assertDictEqual(json.loads(respond.data), expected)
 
     def test_create_duplicate_store(self):
@@ -85,8 +85,8 @@ class StoreTest(BaseTest):
 
                 expected = {
                     'stores': [
-                    {'name':'test01', 'items':[]},
-                    {'name':'test02', 'items':[]}
+                    {'name':'test01', 'id':1 ,'items':[]},
+                    {'name':'test02', 'id':2 ,'items':[]}
                     ]
                 }
                 self.assertEqual(respond.status_code, 200)
@@ -110,8 +110,8 @@ class StoreTest(BaseTest):
 
                 expected = {
                     'stores': [
-                        {'name': 'test01', 'items': [{'name':'chair', 'price':8.88}]},
-                        {'name': 'test02', 'items': [{'name':'desk', 'price':18.88}]}
+                        {'name': 'test01', 'id':1 ,'items': [{'name':'chair', 'price':8.88}]},
+                        {'name': 'test02', 'id':2 ,'items': [{'name':'desk', 'price':18.88}]}
                     ]
                 }
                 self.assertEqual(respond.status_code, 200)
